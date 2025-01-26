@@ -1,0 +1,440 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.navBar1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* מוודא שה-navbar יהיה מעל שאר התוכן */
+  background-color: #fff; /* צבע רקע */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* הצללה */
+  padding: 10px;
+  background-color: #3e3939
+}
+
+.navbar {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  height: 50px;
+}
+
+.navbar li {
+  padding: 5px 15px;
+}
+
+.navbar .link {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+.navbar .link:hover {
+  color: #FFD700; /* צבע זהב כשעוברים עם העכבר */
+}
+
+/* עיצוב רספונסיבי */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar li {
+    padding: 10px 0;
+  }
+}
+
+.navbar .link {
+  font-size: 20px;
+  color: #e1e1e1;
+  font-family: 'Assistant', sans-serif;
+  font-weight: 950;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  transition: color 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.navbar .link:focus,
+.navbar .link:hover {
+  color: #fff;
+}
+
+/* תוכן שמתחת ל-navbar */
+.content {
+  height: 100%; /* מאפשר לתוכן לתפוס את כל המסך */
+  overflow-y: auto; /* גלילה אוטומטית אם התוכן יותר גבוה מהגובה של המסך */
+  overflow-x: hidden;
+}
+
+/* אם התוכן עובר את גובה המסך, ייווצר סליידר גלילה */
+body {
+  margin: 0;
+  overflow: hidden;
+}
+.logo {
+  width: auto; /* שמירה על יחס האורך-רוחב של התמונה */
+  height: 60px; /* גובה התמונה מוגדר כדי שהיא לא תתפוס יותר מדי מקום */
+  position: absolute;
+  right: 2%; 
+  top: 50%; 
+  transform: translateY(-50%); 
+}
+.logo1{
+  width: auto;
+  height: 60px;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 5vh;
+  right: 1vw;
+}
+.modal-style {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 417px;
+  background-color: white;
+  border: 1px solid #000;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  /* height: 42vh; */
+}
+.imgRecipe{
+  background-size: cover; /* מכסה את כל הרקע */
+  background-position: center center; /* ממקם את התמונה במרכז */
+  background-attachment: fixed; /* מבטיח שהתמונה נשארת קבועה כשהדף גולל */
+  height: 100vh; /* מבטיח שהתמונה תכסה את כל גובה המסך */
+  margin: 0;
+  width: 50%;
+}
+.icon1 {
+  width: auto; /* שמירה על יחס האורך-רוחב של התמונה */
+  height: 60px; /* גובה התמונה מוגדר כדי שהיא לא תתפוס יותר מדי מקום */
+  position: absolute;
+  right: 95%; 
+  top: 50%; 
+  transform: translateY(-50%); 
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.recipe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 400px;
+  margin: 20px auto;
+  flex: 0 0 30%; /* ברירת מחדל: 3 מתכונים בשורה */
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  height: 58vh;
+}
+
+.recipe-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.recipe-details {
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  font-size: 24px;
+  color: #666;
+}
+
+.icon-text {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+.separator {
+  height: 24px;
+  width: 1px;
+  background-color: #ddd;
+  margin: 0 20px;
+}
+
+/* עיצוב חלונית המודל */
+.modal-style {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 417px;
+  background-color: white;
+  border: 1px solid #000;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* עיצוב רספונסיבי */
+@media (max-width: 768px) {
+  .recipe-container {
+    flex: 0 0 45%; /* 2 מתכונים בשורה במסכים קטנים */
+    max-width: 100%;
+    height: auto; /* גובה משתנה לפי התוכן */
+  }
+
+  .recipe-image {
+    height: 150px; /* תמונה קטנה יותר */
+  }
+
+  .icon-text {
+    font-size: 12px; /* טקסט קטן יותר */
+  }
+}
+
+@media (max-width: 480px) {
+  .recipe-container {
+    flex: 0 0 100%; /* מתכון אחד בשורה במסכים קטנים מאוד */
+    margin-bottom: 15px;
+  }
+
+  .recipe-image {
+    height: 120px; /* תמונה קטנה יותר */
+  }
+
+  .icon-text {
+    font-size: 10px;
+  }
+}
+.imgRecipe {
+  background-size: cover; /* מכסה את כל הרקע */
+  background-position: center center; /* ממקם את התמונה במרכז */
+  background-attachment: fixed; /* מבטיח שהתמונה נשארת קבועה כשהדף גולל */
+  height: 100vh; /* מכסה את כל גובה המסך */
+  margin: 0;
+  width: 50%; /* ברירת מחדל: 50% רוחב */
+}
+
+@media (max-width: 768px) {
+  .imgRecipe {
+    width: 100%; /* במסכים קטנים, התמונה תכסה את כל הרוחב */
+    height: 50vh; /* גובה מופחת */
+  }
+}
+
+@media (max-width: 480px) {
+  .imgRecipe {
+    height: 40vh; /* במסכים קטנים מאוד, גובה התמונה קטן יותר */
+  }
+}
+
+.recipe-details-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row; /* ברירת מחדל: פריסה בשורה */
+  margin-top: 10vh;
+  height: 90vh;
+  direction: ltr;
+}
+
+@media (max-width: 768px) {
+  .recipe-details-container {
+    flex-direction: column; /* במסכים קטנים, הפריסה תהיה בעמודה */
+    align-items: center;
+    height: auto; /* גובה דינמי */
+  }
+}
+
+.recipe-text {
+  font-family: "Assistant", sans-serif;
+  width: 70%; /* ברירת מחדל: רוחב 70% */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  direction: rtl;
+  margin-top: 7vh;
+}
+
+@media (max-width: 768px) {
+  .recipe-text {
+    width: 90%; /* במסכים קטנים, רוחב התוכן מוגדל */
+    margin-top: 3vh;
+  }
+}
+
+.recipe-header {
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1vh;
+  margin-bottom: 2vh;
+}
+
+.recipe-header div {
+  text-align: center;
+  flex: 1;
+}
+
+@media (max-width: 480px) {
+  .recipe-header {
+    flex-direction: column; /* במסכים קטנים מאוד, הפרטים מוצגים בעמודה */
+    align-items: center;
+  }
+
+  .recipe-header div {
+    margin-bottom: 1rem; /* ריווח בין האייקונים */
+  }
+}
+
+.recipe-list {
+  padding-inline-start: 0;
+  margin-bottom: 2vh;
+}
+
+.recipe-instructions {
+  width: 70%; /* ברירת מחדל */
+  margin-bottom: 2vh;
+}
+
+@media (max-width: 768px) {
+  .recipe-instructions {
+    width: 90%; /* במסכים קטנים, רוחב גדול יותר */
+  }
+}
+
+.recipe-favorite {
+  margin-top: 2vh;
+  color: #e6392b;
+  text-align: center;
+}
+.navbar-user {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.user-icon {
+  height: 40px;
+  margin-left: 10px;
+}
+
+.navbar-greeting {
+  color: white;
+  font-size: clamp(1rem, 2.5vw, 1.5rem); /* גודל דינמי בין מסכים קטנים לגדולים */
+  position: absolute;
+  left: 5vw;
+  font-weight: 700;
+  white-space: nowrap; /* מונע מעבר שורה */
+}
+/* OpenRefrigerator.css */
+/* 
+.refrigerator-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.refrigerator-container h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.refrigerator-container input[type="text"] {
+  padding: 10px;
+  font-size: 1rem;
+  width: 80%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.recipe-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.recipe-card {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  min-width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.recipe-card:hover {
+  transform: scale(1.05);
+}
+
+.refrigerator-container p {
+  color: #777;
+  font-size: 1.2rem;
+} */
