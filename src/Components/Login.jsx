@@ -65,6 +65,7 @@ const Login = () => {
               helperText={errors.name} // מציג את הודעת השגיאה
             />
           </Box>
+          <h2>d</h2>
           <br />
           <h3 style={{ display: "ruby-text" }}>הכנס  כתובת מייל
             <p style={{ color: "red", fontSize: "22px" }}> *</p></h3>
